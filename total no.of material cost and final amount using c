@@ -1,0 +1,44 @@
+#include <stdio.h>
+int main()
+{
+    float cement_qty,steel_qty,sand_qty;
+    float cement_rate,steel_rate,sand_rate;
+    float cement_cost,steel_cost,sand_cost;
+    float total,gst,final_amount;
+    printf("enter cement quantity (bags):");
+    scanf("%f",&cement_qty);
+    printf("enter rate per bag:");
+    scanf("%f",&cement_rate);
+    printf("enter the steel quality (kg):");
+    scanf("%f",&steel_qty);
+    printf("enter the rate per kg:");
+    scanf("%f",&steel_rate);
+    printf("enter the sand quantity (tons)");
+    scanf("%f",&sand_qty);
+    printf("enter rate per ton:");
+    scanf("%f",&sand_rate);
+    cement_cost=cement_qty*cement_rate;
+    steel_cost=steel_qty*steel_rate;
+    sand_cost=sand_qty*sand_rate;
+    total=cement_cost+steel_cost+sand_cost;
+    gst=total*0.18;
+    final_amount=total+gst;
+    printf("\ntotal material cost=%.2f",total);
+    printf("\nGST (18%%)=%.2f",gst);
+    printf("\nfinal amount=%.2f\n",final_amount);
+    return 0;
+}
+#include <stdio.h>
+#define PI 3.1416
+int main(){
+    float radius,height,volume,liters;
+    printf("enter radius (m): ");
+    scanf("%f",&radius);
+    printf("enter height (m): ");
+    scanf("%f",&height);
+    volume= PI*radius*radius*height;
+    liters=volume*1000;
+    printf("\n tank volume=%.2f m3",volume);
+    printf("\n tank capacity=%.2f liters\n",liters);
+    return 0;
+}
