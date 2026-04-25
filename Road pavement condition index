@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main()
+{
+    float cs;
+    printf("enter the road pavement condition index\n");
+    scanf("%f",&cs);
+    if(cs>=85)
+    printf("the road pavement condition is excellent\n");
+    else if(cs>=70&&cs<=85)
+    printf("the road pavement condition is good\n");
+    else if(cs>=55&&cs<70)
+    printf("the road pavement condition is fair\n");
+    else if(cs<55)
+    printf("the road pavement condition is poor\n");
+    else
+    printf("invalid input\n");
+    return 0;
+}
