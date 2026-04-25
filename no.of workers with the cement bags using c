@@ -1,0 +1,33 @@
+#include <stdio.h>
+int cementunits(int workers,int bagperworkers,int arr[],int n)
+{
+    int totalworkers=0;
+    int requiredworkers=workers*bagperworkers;
+    int i;
+    if(arr==NULL)
+    return-1;
+    for(i=0;i<n;i++)
+    {
+        totalworkers+=arr[i];
+        if(totalworkers>=requiredworkers)
+        return i+1;
+    }
+    return 0;
+}
+int main()
+{
+    int workers,bagperworkers,arr[50],n,i;
+    printf("enter no of workers and how many bags they contain\n");
+    scanf("%d%d",&workers,&bagperworkers);
+    printf("enter no of storage\n");
+    scanf("%d",&n);
+    printf("enter cement bag available in storage\n");
+    for(i=0;i<n;i++)
+    {
+        printf("\n storage %d",i+1);
+        scanf("%d",&arr[i]);
+    }
+    int result=cementunits(workers,bagperworkers,arr,n);
+    printf("output:%d",result);
+    return 0;
+}
