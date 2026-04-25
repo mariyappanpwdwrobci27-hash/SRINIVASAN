@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+struct Employee {
+    int id;
+    char name[50];
+    float basic_salary;
+    float HRA;
+    float DA;
+    float gross_salary;
+};
+
+void compute_gross_salary(struct Employee *emp) {
+    emp->gross_salary = emp->basic_salary + emp->HRA + emp->DA;
+}
+
+struct Employee find_highest_paid_employee(struct Employee emp[], int n) {
+    struct Employee highest_paid = emp[0];
+    for (int i = 1; i < n; i++) {
+        if (emp[i].gross_salary > highest_paid.gross_salary) {
+            highest_paid = emp[i];
+        }
+    }
+    return highest_paid;
+}
+
+int main() {
+    int n;
+    printf("Enter number of employees: ");
+    scanf("%d", &n);
+    
+    struct Employee emp[n];
+    
+    for (int i = 0; i < n; i++) {
+        printf("Enter details for employee %d (ID, Name, Basic Salary, HRA, DA): ", i + 1);
+        scanf("%d %s %f %f %f", &emp[i].id, emp[i].name, &emp[i].basic_salary, &emp[i].HRA, &emp[i].DA);
+        compute_gross_salary(&emp[i]);
+    }
+    
+    struct Employee highest_paid = find_highest_paid_employee(emp, n);
+    
+    printf("Highest Paid Employee: ID: %d, Name: %s, Gross Salary: %.2f\n", highest_paid.id, highest_paid.name, highest_paid.gross_salary);
+    
+    return 0;
+}
